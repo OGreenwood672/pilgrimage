@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#grad7)"/>
+  <g opacity="0.3"><polygon points="80,260 220,60 360,260" fill="#f8fafc"/><polygon points="170,120 220,60 270,120" fill="#ea580c"/><polygon points="260,260 380,100 500,260" fill="#cbd5e1"/></g>
+  <rect x="0" y="220" width="600" height="140" fill="rgba(0,0,0,0.6)"/>
+  <text x="30" y="265" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700">Great St Bernard Pass</text>
+  <text x="30" y="295" fill="#f97316" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600">Swiss Alps (2,469m Elevation)</text>
+  <text x="30" y="325" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12">TODO: Segment Image</text>
+</svg>

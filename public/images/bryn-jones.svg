@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="hillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="1000" fill="url(#bgGrad)"/>
+
+  <!-- Mountain Silhouette Background -->
+  <path d="M-50 700 L180 520 L350 630 L550 460 L850 720 L850 1000 L-50 1000 Z" fill="url(#hillGrad)"/>
+  <path d="M-20 780 L220 640 L460 740 L680 590 L850 730 L850 1000 L-20 1000 Z" fill="#1e293b" opacity="0.9"/>
+
+  <!-- Sun / Horizon glow -->
+  <circle cx="550" cy="460" r="100" fill="#ea580c" opacity="0.15"/>
+
+  <!-- Hiker / Adventurer Silhouette Icon in Center -->
+  <g transform="translate(340, 280) scale(1.6)" fill="#f8fafc">
+    <!-- Head & Cap -->
+    <circle cx="36" cy="18" r="14"/>
+    <path d="M22 14 Q38 4 54 13 L56 18 Q36 10 22 18 Z" fill="#ea580c"/>
+    <!-- Backpack -->
+    <rect x="12" y="36" width="16" height="34" rx="6" fill="#64748b"/>
+    <!-- Torso / Jacket -->
+    <path d="M26 34 L48 34 L52 76 L24 76 Z"/>
+    <!-- Walking Poles & Arms -->
+    <path d="M44 38 L62 58 L60 98" stroke="#f8fafc" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M28 38 L16 62 L12 98" stroke="#f8fafc" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <!-- Legs in walking stride -->
+    <path d="M30 74 L18 108 L10 120" stroke="#f8fafc" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M44 74 L58 102 L70 114" stroke="#f8fafc" stroke-width="6" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- Label badge -->
+  <rect x="140" y="760" width="520" height="150" rx="16" fill="#0f172a" stroke="#ea580c" stroke-width="2" opacity="0.95"/>
+  <text x="400" y="805" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" text-anchor="middle">
+    Bryn Jones
+  </text>
+  <text x="400" y="845" fill="#fb923c" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="600" text-anchor="middle">
+    Walking: South Heath → Rome
+  </text>
+  <text x="400" y="885" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="15" text-anchor="middle">
+    TODO: Replace with Bryn&apos;s photo
+  </text>
+</svg>
+

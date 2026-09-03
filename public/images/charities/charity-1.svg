@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="100%" height="100%">
+  <rect width="400" height="160" rx="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2"/>
+  <g transform="translate(30, 40)">
+    <!-- Heart & Pulse Icon -->
+    <rect x="0" y="0" width="80" height="80" rx="20" fill="#2563eb"/>
+    <path d="M40 58 C22 44 18 34 26 24 C32 16 40 22 40 22 C40 22 48 16 54 24 C62 34 58 44 40 58 Z" fill="#ffffff"/>
+  </g>
+  <text x="130" y="65" fill="#1e3a8a" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700">
+    Hope Hospice Care
+  </text>
+  <text x="130" y="95" fill="#3b82f6" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600">
+    Compassion &amp; Support
+  </text>
+  <text x="130" y="118" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11">
+    TODO: Charity Logo
+  </text>
+</svg>
+

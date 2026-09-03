@@ -1,0 +1,110 @@
+[
+  {
+    "id": "segment-1",
+    "lat": 51.7105,
+    "lng": -0.6865,
+    "title": "Leaving South Heath: The First Step",
+    "text": "From the quiet country lanes of South Heath in the Chiltern Hills, Bryn straps on his pack and sets foot on the 2,000 km pilgrimage. The morning mist over the beech woodlands marks the commencement of months of walking.",
+    "image": "/images/segments/segment-1.svg",
+    "location": "South Heath, Buckinghamshire, UK",
+    "distance": "0 km / 0 mi",
+    "country": "United Kingdom",
+    "elevation": "170m"
+  },
+  {
+    "id": "segment-2",
+    "lat": 51.1279,
+    "lng": 1.3134,
+    "title": "The White Cliffs of Dover",
+    "text": "Walking along the historic North Downs Way through Canterbury towards Dover. Looking out over the English Channel from the iconic chalk cliffs before boarding the ferry to the European continent.",
+    "image": "/images/segments/segment-2.svg",
+    "location": "Dover, Kent, UK",
+    "distance": "185 km / 115 mi",
+    "country": "United Kingdom",
+    "elevation": "110m"
+  },
+  {
+    "id": "segment-3",
+    "lat": 50.9513,
+    "lng": 1.8587,
+    "title": "Touching Down in France: Calais & Picardy",
+    "text": "Stepping onto French soil at Calais. Joining the official Via Francigena, winding through pastoral farmland, quiet canals, and historic towns across the Nord-Pas-de-Calais and Picardy.",
+    "image": "/images/segments/segment-3.svg",
+    "location": "Calais & Arras, France",
+    "distance": "240 km / 149 mi",
+    "country": "France",
+    "elevation": "45m"
+  },
+  {
+    "id": "segment-4",
+    "lat": 49.2583,
+    "lng": 4.0317,
+    "title": "Reims & The Champagne Hills",
+    "text": "The towering Gothic spires of Notre-Dame de Reims greet the trail. Walking through miles of undulating vineyards and ancient chalk cellars in the heart of the world-famous Champagne region.",
+    "image": "/images/segments/segment-4.svg",
+    "location": "Reims, Grand Est, France",
+    "distance": "460 km / 285 mi",
+    "country": "France",
+    "elevation": "85m"
+  },
+  {
+    "id": "segment-5",
+    "lat": 47.2378,
+    "lng": 6.0241,
+    "title": "Ascending the Jura: Besançon",
+    "text": "The terrain steepens as the trail hugs the Doubs River loop around Besançon's Citadel. Lush pine forests, limestone gorges, and crisp alpine air signal the transition toward the Swiss frontier.",
+    "image": "/images/segments/segment-5.svg",
+    "location": "Besançon & Jura Mountains, France",
+    "distance": "790 km / 490 mi",
+    "country": "France",
+    "elevation": "260m"
+  },
+  {
+    "id": "segment-6",
+    "lat": 46.5197,
+    "lng": 6.6323,
+    "title": "Lake Geneva & The Lavaux Vineyards",
+    "text": "Passing into Switzerland and descending onto the sapphire shores of Lake Geneva at Lausanne. Walking through UNESCO-listed terraced vineyards with the snow-capped Alps reflecting across the open water.",
+    "image": "/images/segments/segment-6.svg",
+    "location": "Lausanne, Lake Geneva, Switzerland",
+    "distance": "980 km / 608 mi",
+    "country": "Switzerland",
+    "elevation": "375m"
+  },
+  {
+    "id": "segment-7",
+    "lat": 45.8689,
+    "lng": 7.1706,
+    "title": "Conquering the Alps: Great St Bernard Pass",
+    "text": "The pinnacle challenge of the entire journey: ascending to 2,469 meters (8,100 ft) into brisk mountain winds, snowfields, and the legendary 1,000-year-old hospice. Crossing the high alpine frontier into Italy.",
+    "image": "/images/segments/segment-7.svg",
+    "location": "Great St Bernard Pass, Swiss/Italian Border",
+    "distance": "1,140 km / 708 mi",
+    "country": "Switzerland / Italy",
+    "elevation": "2,469m"
+  },
+  {
+    "id": "segment-8",
+    "lat": 43.843,
+    "lng": 10.508,
+    "title": "Tuscan Trails: Lucca & Val d'Orcia",
+    "text": "Descending from the Aosta Valley into the warm, golden light of Tuscany. Wandering along the Renaissance fortified walls of Lucca, cypress-lined gravel strade bianche, and olive orchards.",
+    "image": "/images/segments/segment-8.svg",
+    "location": "Lucca & Tuscany, Italy",
+    "distance": "1,620 km / 1,006 mi",
+    "country": "Italy",
+    "elevation": "19m"
+  },
+  {
+    "id": "segment-9",
+    "lat": 41.9022,
+    "lng": 12.4568,
+    "title": "The Final Mile: Rome & St. Peter's Square",
+    "text": "Entering Rome via Monte Mario to catch the very first awe-inspiring panoramic view of the Eternal City. Walking the final triumphal avenue into St. Peter's Square—2,050 kilometres on foot, dream fulfilled, and life-changing charities supported.",
+    "image": "/images/segments/segment-9.svg",
+    "location": "Vatican City & Rome, Italy",
+    "distance": "2,050 km / 1,273 mi",
+    "country": "Italy",
+    "elevation": "21m"
+  }
+]

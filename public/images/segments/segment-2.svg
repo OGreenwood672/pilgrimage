@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c4a6e"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#grad2)"/>
+  <g opacity="0.3"><path d="M60 260 L240 160 L380 260 Z" fill="#e0f2fe"/><path d="M0 260 Q150 240 300 260 T600 260" fill="none" stroke="#7dd3fc" stroke-width="6"/></g>
+  <rect x="0" y="220" width="600" height="140" fill="rgba(0,0,0,0.6)"/>
+  <text x="30" y="265" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700">White Cliffs of Dover</text>
+  <text x="30" y="295" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600">English Channel Coast</text>
+  <text x="30" y="325" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12">TODO: Segment Image</text>
+</svg>

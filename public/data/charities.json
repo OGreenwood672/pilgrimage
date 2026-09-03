@@ -1,0 +1,22 @@
+[
+  {
+    "id": "charity-1",
+    "name": "Hope Hospice & Palliative Care",
+    "category": "End of Life & Patient Care",
+    "logo": "/images/charities/charity-1.svg",
+    "description": "Provides specialist compassionate care, pain management, and dedicated emotional support for individuals facing life-limiting illnesses and their families.",
+    "brynStory": "Supported Bryn's family through their most challenging season with warmth and dignity.",
+    "website": "https://www.hospicecare.org.uk",
+    "accentColor": "#2563eb"
+  },
+  {
+    "id": "charity-2",
+    "name": "Thames Valley Air Ambulance",
+    "category": "Emergency & Trauma Medicine",
+    "logo": "/images/charities/charity-2.svg",
+    "description": "Delivers advanced hospital-grade emergency medical and trauma care directly to critical accident scenes across Buckinghamshire and beyond within minutes.",
+    "brynStory": "An essential local lifeline for rural and outdoor communities across Bryn's home county of Buckinghamshire.",
+    "website": "https://www.tvairambulance.org.uk",
+    "accentColor": "#ea580c"
+  }
+]
