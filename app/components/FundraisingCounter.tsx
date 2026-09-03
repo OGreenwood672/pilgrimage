@@ -63,37 +63,37 @@ export default function FundraisingCounter({
 
   return (
     <div
-      className={`bg-gradient-to-br from-stone-900 via-stone-900 to-stone-950 rounded-3xl p-6 sm:p-8 border border-stone-800 shadow-2xl relative overflow-hidden ${className}`}
+      className={`bg-gradient-to-br from-stone-900 via-stone-900 to-stone-950 rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-stone-800 shadow-2xl relative overflow-hidden ${className}`}
     >
       {/* Background ambient glow */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 sm:gap-4 mb-5 sm:mb-6">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-950/80 border border-rose-500/40 text-rose-400 text-xs font-semibold tracking-wide mb-2">
               <Heart className="w-3.5 h-3.5 fill-rose-500/50 text-rose-500" />
               <span>Live Campaign Total</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+            <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
               Money Raised for Our 2 Partner Charities
             </h3>
           </div>
 
-          <div className="text-[11px] font-mono text-stone-400 bg-stone-800/80 px-3 py-1.5 rounded-xl border border-stone-700/60 self-start md:self-auto">
+          <div className="text-[10px] sm:text-[11px] font-mono text-stone-400 bg-stone-800/80 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl border border-stone-700/60 self-start md:self-auto">
             TODO: Update in /data/fundraising.json
           </div>
         </div>
 
         {/* Large Counter Highlight */}
-        <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-5 sm:gap-6 items-center mb-4 sm:mb-6">
           <div className="sm:col-span-7">
-            <div className="flex items-baseline gap-3">
-              <span className="text-4xl sm:text-6xl font-black text-white font-mono tracking-tight">
+            <div className="flex flex-wrap items-baseline gap-2 sm:gap-3">
+              <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-mono tracking-tight">
                 {formattedRaised}
               </span>
-              <span className="text-sm sm:text-base text-stone-400 font-medium">
+              <span className="text-xs sm:text-base text-stone-400 font-medium">
                 raised of{" "}
                 <strong className="text-stone-200">{formattedTarget}</strong>{" "}
                 target

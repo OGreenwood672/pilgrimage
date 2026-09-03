@@ -52,11 +52,13 @@ export default function JourneyMapInner({
   useEffect(() => {
     if (!mapContainerRef.current || mapInstanceRef.current) return;
 
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
+
     // Create map centered over Western Europe
     const map = L.map(mapContainerRef.current, {
       center: [46.5, 6.0],
-      zoom: 6,
-      minZoom: 4,
+      zoom: isMobile ? 4.5 : 6,
+      minZoom: 3,
       maxZoom: 16,
       zoomControl: false,
       attributionControl: true,
@@ -74,10 +76,32 @@ export default function JourneyMapInner({
     const southHeathLatLng = L.latLng(51.7105, -0.6865);
     const romeLatLng = L.latLng(41.9022, 12.4568);
     const bounds = L.latLngBounds([southHeathLatLng, romeLatLng]);
-    map.fitBounds(bounds, { padding: [40, 40] });
+    if (isMobile) {
+      // On mobile, show the full European route comfortably framed
+      map.fitBounds(bounds, { padding: [12, 12], maxZoom: 5 });
+    } else {
+      map.fitBounds(bounds, { padding: [40, 40] });
+    }
+
+    // Force Leaflet to recalculate dimensions so the map fills 100% of container (fixes bottom quarter blankness)
+    const handleResize = () => {
+      map.invalidateSize();
+    };
+    setTimeout(handleResize, 100);
+    setTimeout(handleResize, 400);
+
+    let ro: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== "undefined" && mapContainerRef.current) {
+      ro = new ResizeObserver(() => {
+        handleResize();
+      });
+      ro.observe(mapContainerRef.current);
+    }
 
     // Base background trail line (faint dashed line showing total path)
-    const fullRouteLatLngs = DENSE_ROUTE.map(([lat, lng]) => L.latLng(lat, lng));
+    const fullRouteLatLngs = DENSE_ROUTE.map(([lat, lng]) =>
+      L.latLng(lat, lng),
+    );
     const basePolyline = L.polyline(fullRouteLatLngs, {
       color: "#64748b",
       weight: 4,
@@ -132,7 +156,7 @@ export default function JourneyMapInner({
 
       m.bindTooltip(
         `<div class="text-xs font-semibold text-stone-900">${seg.title}</div><div class="text-[10px] text-stone-500">${seg.location || ""}</div>`,
-        { direction: "top", offset: [0, -10] }
+        { direction: "top", offset: [0, -10] },
       );
 
       m.on("click", () => {
@@ -160,7 +184,8 @@ export default function JourneyMapInner({
       return;
     }
 
-    const { activePoints, currentTip } = getRouteForStageProgress(stageProgress);
+    const { activePoints, currentTip } =
+      getRouteForStageProgress(stageProgress);
     const activeLatLngs = activePoints.map(([lat, lng]) => L.latLng(lat, lng));
 
     // Update polyline path coordinates
@@ -189,8 +214,12 @@ export default function JourneyMapInner({
       }
     });
 
-    // Gentle pan to target coordinate so walker & active segment stay centered
+    // Gentle pan: ONLY on desktop!
+    // On mobile, keep the full European journey framed in view so the user can watch
+    // the orange line draw smoothly and the walker marker glide without abrupt camera jumps or teleporting.
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
     if (
+      !isMobile &&
       prevActiveIndexRef.current !== activeSegmentIndex &&
       segments[activeSegmentIndex]
     ) {
@@ -208,10 +237,12 @@ export default function JourneyMapInner({
   const handleRecenter = () => {
     const map = mapInstanceRef.current;
     if (!map) return;
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
     const southHeathLatLng = L.latLng(51.7105, -0.6865);
     const romeLatLng = L.latLng(41.9022, 12.4568);
     map.flyToBounds(L.latLngBounds([southHeathLatLng, romeLatLng]), {
-      padding: [40, 40],
+      padding: isMobile ? [12, 12] : [40, 40],
+      maxZoom: isMobile ? 5 : undefined,
       duration: 1.0,
     });
   };
@@ -226,62 +257,64 @@ export default function JourneyMapInner({
 
   const activeSegment = segments[activeSegmentIndex];
   const progressPercent = Math.round(
-    (stageProgress / Math.max(1, segments.length - 1)) * 100
+    (stageProgress / Math.max(1, segments.length - 1)) * 100,
   );
 
   return (
-    <div className="relative w-full h-full bg-stone-200">
+    <div className="relative w-full h-full bg-stone-900">
       {/* Leaflet container */}
       <div ref={mapContainerRef} className="w-full h-full z-0" />
 
       {/* Map Action Controls */}
-      <div className="absolute top-4 right-4 z-20 flex flex-col gap-1.5 bg-stone-900/85 backdrop-blur-md p-1.5 rounded-xl border border-stone-700/80 shadow-lg">
+      <div className="absolute top-2.5 right-2.5 sm:top-4 sm:right-4 z-20 flex flex-col gap-1 bg-stone-900/90 backdrop-blur-md p-1 sm:p-1.5 rounded-xl border border-stone-700/80 shadow-lg">
         <button
           onClick={handleZoomIn}
           title="Zoom In"
           aria-label="Zoom In"
-          className="w-8 h-8 flex items-center justify-center text-stone-200 hover:text-white hover:bg-stone-800 rounded-lg transition-colors"
+          className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-stone-200 hover:text-white hover:bg-stone-800 rounded-lg transition-colors"
         >
-          <ZoomIn className="w-4 h-4" />
+          <ZoomIn className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </button>
         <button
           onClick={handleZoomOut}
           title="Zoom Out"
           aria-label="Zoom Out"
-          className="w-8 h-8 flex items-center justify-center text-stone-200 hover:text-white hover:bg-stone-800 rounded-lg transition-colors"
+          className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-stone-200 hover:text-white hover:bg-stone-800 rounded-lg transition-colors"
         >
-          <ZoomOut className="w-4 h-4" />
+          <ZoomOut className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </button>
         <div className="h-px bg-stone-700 mx-1 my-0.5" />
         <button
           onClick={handleRecenter}
           title="Reset View to Full Journey"
           aria-label="Reset View"
-          className="w-8 h-8 flex items-center justify-center text-stone-200 hover:text-orange-400 hover:bg-stone-800 rounded-lg transition-colors"
+          className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-stone-200 hover:text-orange-400 hover:bg-stone-800 rounded-lg transition-colors"
         >
-          <RefreshCw className="w-4 h-4" />
+          <RefreshCw className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </button>
       </div>
 
       {/* Live Active Stop & Progress Pill on bottom left of map */}
-      <div className="absolute bottom-4 left-4 z-20 bg-stone-900/90 backdrop-blur-md border border-stone-700/80 px-3.5 py-2.5 rounded-xl text-white shadow-lg flex flex-col gap-1.5 max-w-[260px] sm:max-w-[320px]">
-        <div className="flex items-center justify-between gap-3 text-xs">
-          <div className="flex items-center gap-1.5 font-semibold text-orange-400">
-            <div className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse" />
-            <span>
+      <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 z-20 bg-stone-900/90 backdrop-blur-md border border-stone-700/80 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-white shadow-lg flex flex-col gap-1 max-w-[200px] sm:max-w-[320px]">
+        <div className="flex items-center justify-between gap-2 text-[11px] sm:text-xs">
+          <div className="flex items-center gap-1 font-semibold text-orange-400 truncate">
+            <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse shrink-0" />
+            <span className="truncate">
               Stage {activeSegmentIndex + 1} of {segments.length}
             </span>
           </div>
-          <span className="font-mono text-stone-400">{progressPercent}%</span>
+          <span className="font-mono text-stone-400 text-[10px] sm:text-xs shrink-0">
+            {progressPercent}%
+          </span>
         </div>
 
         {activeSegment && (
-          <div className="text-xs font-medium text-stone-200 truncate">
+          <div className="text-[10px] sm:text-xs font-medium text-stone-200 truncate hidden xs:block">
             {activeSegment.location || activeSegment.title}
           </div>
         )}
 
-        <div className="w-full h-1.5 bg-stone-800 rounded-full overflow-hidden">
+        <div className="w-full h-1 sm:h-1.5 bg-stone-800 rounded-full overflow-hidden">
           <div
             className="h-full bg-orange-500 transition-all duration-75"
             style={{ width: `${progressPercent}%` }}

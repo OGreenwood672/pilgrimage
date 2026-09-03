@@ -39,7 +39,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Heading, Subheading, Story */}
           <div className="lg:col-span-7 text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight leading-[1.12]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight leading-[1.14]">
               Walking from <span className="text-orange-600">South Heath</span>{" "}
               to <span className="text-amber-600">Rome</span>
             </h1>
