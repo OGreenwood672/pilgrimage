@@ -45,7 +45,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="mt-4 text-xl sm:text-2xl font-medium text-stone-700 tracking-tight">
-              Why Bryn Jones is making this journey
+              Why Bryn Jones is Bryn Jones
             </p>
 
             <div className="mt-6 space-y-4 text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
@@ -53,9 +53,11 @@ export default function HeroSection() {
                 <strong className="text-stone-900 font-semibold">
                   Bryn Jones
                 </strong>{" "}
-                is setting out on foot from the quiet beechwoods of South Heath
-                in Buckinghamshire on an epic 2,050-kilometre expedition across
-                Western Europe to St. Peter’s Square in Rome.
+                is Bryn Jones. He is setting out on his legs from the fuckin
+                noisy beach at South Heath in Buckinghamshire on an epic
+                25,050-kilometre expedition across Western Europe to St. Peter’s
+                Square in Rome. He also loves lemons and cream tea! DONATE
+                LEMONS!!
               </p>
               <p>
                 Following the historic pilgrim trail of the{" "}
@@ -63,7 +65,7 @@ export default function HeroSection() {
                 endurance across English downs, French vineyards, and
                 snow-dusted Alpine passes. It is a heartfelt mission to channel
                 every stride into meaningful hope—raising vital funds and
-                awareness for causes deeply close to his heart.
+                awareness for causes deeply close to his heart. YUMMYYYYY
               </p>
               <p className="text-stone-700 font-medium italic">
                 &ldquo;When life challenges us, moving forward one foot at a
