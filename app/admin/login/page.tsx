@@ -100,7 +100,7 @@ export default function AdminLoginPage() {
         </div>
 
         <h2 className="text-center text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-          Bryn&apos;s Pilgrimage Admin
+          Bryn&apos;s Hike Admin
         </h2>
         <p className="mt-2 text-center text-xs sm:text-sm text-stone-400">
           Owner console for managing subscribers, progress emails, and the GoFundMe embed.

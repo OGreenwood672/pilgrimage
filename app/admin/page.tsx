@@ -398,7 +398,7 @@ export default function AdminDashboardPage() {
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-sm sm:text-base font-bold text-white tracking-tight">
-                  Bryn&apos;s Pilgrimage Admin
+                  Bryn&apos;s Hike Admin
                 </span>
                 <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-orange-950 text-orange-400 border border-orange-500/30">
                   Owner
@@ -761,7 +761,7 @@ export default function AdminDashboardPage() {
                   {/* Email Header */}
                   <div className="bg-gradient-to-br from-stone-900 to-stone-800 p-6 text-center text-white">
                     <span className="inline-block px-3 py-1 rounded-full bg-orange-600/30 border border-orange-500/40 text-orange-300 text-[10px] font-bold uppercase tracking-wider mb-2">
-                      The 2,050 km Pilgrimage
+                      The 2,050 km Hike
                     </span>
                     <h4 className="text-lg font-bold">Walking from Buckinghamshire to Rome</h4>
                     <p className="text-xs text-stone-300 mt-0.5">
@@ -797,7 +797,7 @@ export default function AdminDashboardPage() {
                   {/* Email Footer */}
                   <div className="bg-stone-50 p-4 text-center border-t border-stone-200 text-[10px] text-stone-500">
                     You received this update because you subscribed to follow Bryn Jones&apos;s
-                    pilgrimage.
+                    hike.
                   </div>
                 </div>
               </div>
@@ -861,7 +861,7 @@ export default function AdminDashboardPage() {
                     Interactive European Route Tracker
                   </h3>
                   <p className="text-xs text-stone-400 mt-1">
-                    Visualise the entire 2,050 km pilgrimage from Buckinghamshire to Rome and update your current location checkpoint.
+                    Visualise the entire 2,050 km hike from Buckinghamshire to Rome and update your current location checkpoint.
                   </p>
                 </div>
 

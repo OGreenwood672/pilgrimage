@@ -63,7 +63,7 @@ export default function NewsletterSignup({ className = "" }: { className?: strin
             </h2>
 
             <p className="mt-3 text-stone-300 text-sm sm:text-base leading-relaxed">
-              Sign up with your email to receive direct letters from the road, milestone reports as Bryn crosses the Alps, and photos along the 2,050 km pilgrimage.
+              Sign up with your email to receive direct letters from the road, milestone reports as Bryn crosses the Alps, and photos along the 2,050 km hike.
             </p>
 
             {/* Form */}

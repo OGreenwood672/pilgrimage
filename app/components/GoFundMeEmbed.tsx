@@ -82,11 +82,8 @@ export default function GoFundMeEmbed({ className = "" }: { className?: string }
               <span>{content.badge}</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-              Support Bryn&apos;s Pilgrimage on GoFundMe
+              Support Bryn&apos;s Hike on GoFundMe
             </h3>
-            <p className="text-xs sm:text-sm text-stone-400 mt-1">
-              100% of public donations directly fund registered hospice and air ambulance charities.
-            </p>
           </div>
 
           <div className="flex items-center gap-2">

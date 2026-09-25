@@ -7,7 +7,7 @@
       "Buckinghamshire to Rome",
       "Via Francigena",
       "Charity Walk",
-      "Pilgrimage",
+      "Hike",
       "Buckinghamshire"
     ],
     "openGraph": {
@@ -54,19 +54,19 @@
     },
     "stats": [
       {
-        "value": "2,050 km",
+        "value": "1,564 mi",
         "label": "Total Distance",
-        "sublabel": "~1,273 miles on foot"
+        "sublabel": "~2,520 km on foot"
       },
       {
         "value": "~2.5M",
         "label": "Estimated Steps",
-        "sublabel": "From start to Vatican finish"
+        "sublabel": "From start to finish"
       },
       {
-        "value": "4",
+        "value": "8",
         "label": "Countries Crossed",
-        "sublabel": "UK, France, Switzerland, Italy"
+        "sublabel": "UK, France, Germany, Switzerland, Austria, Liechtenstein, Italy, Vatican City"
       },
       {
         "value": "2,469 m",
@@ -79,7 +79,7 @@
   "charitiesTeaser": {
     "badge": "Dedicated Causes",
     "title": "Walking in Support of 2 Partner Charities",
-    "description": "Every step is dedicated to compassionate hospice care and rapid air ambulance emergency trauma relief. Learn about each cause and how to contribute.",
+    "description": "Every step is dedicated to compassion. Learn about each cause and how to contribute.",
     "buttonText": "Explore the Charities"
   },
   "journey": {
@@ -96,7 +96,7 @@
     "centerOnMap": "Center on Map",
     "loadingMap": "Loading European Trail Map...",
     "completionCard": {
-      "title": "The Pilgrimage Completed",
+      "title": "The Hike Completed",
       "description": "From Buckinghamshire to Rome: 2,050 kilometres walked, countless lives touched, and crucial support delivered to our partner charities.",
       "buttonText": "Support Bryn's Charities"
     }
@@ -116,7 +116,7 @@
   },
   "charitiesPage": {
     "metaTitle": "Supported Charities | Bryn Jones - Buckinghamshire to Rome",
-    "metaDescription": "Learn about the 2 charities Bryn Jones is supporting on his 2,050 km walk from Buckinghamshire to Rome: Hope Hospice Care and Thames Valley Air Ambulance.",
+    "metaDescription": "Learn about the 2 charities Bryn Jones is supporting on his 2,050 km walk from Buckinghamshire to Rome.",
     "backLink": "Back to The Walk & Interactive Map",
     "badge": "Dedicated Causes & Fundraising",
     "title": "Supporting These 2 Charities",

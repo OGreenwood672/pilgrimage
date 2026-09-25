@@ -1,5 +1,5 @@
 -- ========================================================================
--- Pilgrimage Website: Supabase Database Schema
+-- Hike Website: Supabase Database Schema
 -- Run this script in your Supabase SQL Editor (https://supabase.com/dashboard)
 -- ========================================================================
 

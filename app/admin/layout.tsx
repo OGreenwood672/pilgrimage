@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Admin Console | Bryn Jones Pilgrimage",
+  title: "Admin Console | Bryn Jones Hike",
   description: "Secure management console for subscribers, progress broadcasts, and campaign settings.",
   robots: {
     index: false,
