@@ -2,9 +2,9 @@
 // Each leg starts at segment[i] and ends at segment[i+1]
 
 export const SEGMENT_LEGS: [number, number][][] = [
-  // Leg 0: South Heath (0) -> Dover (1)
+  // Leg 0: Buckinghamshire (0) -> Dover (1)
   [
-    [51.7105, -0.6865], // South Heath
+    [51.7105, -0.6865], // Buckinghamshire
     [51.6740, -0.6080], // Amersham
     [51.5850, -0.4780], // Uxbridge
     [51.4816, -0.0090], // Greenwich / Thames

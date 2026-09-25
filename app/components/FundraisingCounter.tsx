@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { Heart, TrendingUp, Users, ArrowRight } from "lucide-react";
+import { Heart, Users, ArrowRight } from "lucide-react";
 import fundraisingData from "../../data/fundraising.json";
+import siteContent from "../../data/site-content.json";
 
 interface FundraisingCounterProps {
   showDonateButton?: boolean;
@@ -14,6 +15,7 @@ export default function FundraisingCounter({
   className = "",
   compact = false,
 }: FundraisingCounterProps) {
+  const { fundraising: content } = siteContent;
   const { currencySymbol, amountRaised, targetAmount, donorCount } =
     fundraisingData;
 
@@ -33,7 +35,7 @@ export default function FundraisingCounter({
         <div className="flex items-center justify-between gap-4 mb-2">
           <div className="flex items-center gap-2 text-xs font-semibold text-rose-400 uppercase tracking-wider">
             <Heart className="w-4 h-4 fill-rose-500/40 text-rose-500" />
-            <span>Fundraising Total</span>
+            <span>{content.compactBadge}</span>
           </div>
           <span className="text-xs font-mono text-stone-400">
             {percent}% of {formattedTarget}
@@ -44,7 +46,7 @@ export default function FundraisingCounter({
           <span className="text-3xl font-black text-white font-mono tracking-tight">
             {formattedRaised}
           </span>
-          <span className="text-xs text-stone-400">raised so far</span>
+          <span className="text-xs text-stone-400">{content.raisedSoFar}</span>
         </div>
 
         <div className="w-full h-2 bg-stone-800 rounded-full overflow-hidden mb-2">
@@ -74,10 +76,10 @@ export default function FundraisingCounter({
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-950/80 border border-rose-500/40 text-rose-400 text-xs font-semibold tracking-wide mb-2">
               <Heart className="w-3.5 h-3.5 fill-rose-500/50 text-rose-500" />
-              <span>Live Campaign Total</span>
+              <span>{content.badge}</span>
             </div>
             <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
-              Money Raised for Our 2 Partner Charities
+              {content.title}
             </h3>
           </div>
 
@@ -94,9 +96,9 @@ export default function FundraisingCounter({
                 {formattedRaised}
               </span>
               <span className="text-xs sm:text-base text-stone-400 font-medium">
-                raised of{" "}
+                {content.raisedOf}{" "}
                 <strong className="text-stone-200">{formattedTarget}</strong>{" "}
-                target
+                {content.target}
               </span>
             </div>
 
@@ -110,10 +112,10 @@ export default function FundraisingCounter({
               </div>
               <div className="flex justify-between items-center text-xs text-stone-400 mt-2">
                 <span className="font-mono font-bold text-orange-400">
-                  {percent}% Target Reached
+                  {percent}% {content.targetReached}
                 </span>
                 <span className="font-mono text-stone-400">
-                  Goal: {formattedTarget}
+                  {content.goal} {formattedTarget}
                 </span>
               </div>
             </div>
@@ -130,21 +132,23 @@ export default function FundraisingCounter({
                   {donorCount.toLocaleString()}
                 </div>
                 <div className="text-xs text-stone-400 mt-0.5">
-                  Individual Supporters
+                  {content.supportersLabel}
                 </div>
               </div>
             </div>
 
+            {/* Commented out link to charities web page
             {showDonateButton && (
               <Link
                 href="/charities"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 shadow-md hover:shadow-lg transition-all"
               >
                 <Heart className="w-4 h-4 fill-white/80" />
-                <span>Support the Charities</span>
+                <span>{content.buttonText}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             )}
+            */}
           </div>
         </div>
       </div>

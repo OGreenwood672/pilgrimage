@@ -72,7 +72,7 @@ export default function JourneyMapInner({
       maxZoom: 18,
     }).addTo(map);
 
-    // Initial bounds fitting UK (South Heath) through Rome
+    // Initial bounds fitting UK (Buckinghamshire) through Rome
     const southHeathLatLng = L.latLng(51.7105, -0.6865);
     const romeLatLng = L.latLng(41.9022, 12.4568);
     const bounds = L.latLngBounds([southHeathLatLng, romeLatLng]);

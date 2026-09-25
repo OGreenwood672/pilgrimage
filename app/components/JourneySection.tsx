@@ -18,6 +18,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import journeySegmentsData from "../../data/journey-segments.json";
+import siteContent from "../../data/site-content.json";
 
 // Dynamically import Leaflet map with SSR disabled
 const JourneyMapInner = dynamic(() => import("./JourneyMapInner"), {
@@ -25,13 +26,14 @@ const JourneyMapInner = dynamic(() => import("./JourneyMapInner"), {
   loading: () => (
     <div className="w-full h-full bg-stone-900 flex flex-col items-center justify-center text-stone-400 gap-3">
       <div className="w-8 h-8 sm:w-10 sm:h-10 border-4 border-orange-500 border-t-transparent rounded-full animate-spin" />
-      <p className="text-xs sm:text-sm font-medium">Loading European Trail Map...</p>
+      <p className="text-xs sm:text-sm font-medium">{siteContent.journey.loadingMap}</p>
     </div>
   ),
 });
 
 export default function JourneySection() {
   const segments = journeySegmentsData;
+  const { journey: journeyText } = siteContent;
   const [stageProgress, setStageProgress] = useState(0);
   const [activeSegmentIndex, setActiveSegmentIndex] = useState(0);
   const [isPlayingAutoTour, setIsPlayingAutoTour] = useState(false);
@@ -219,15 +221,15 @@ export default function JourneySection() {
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-950/80 border border-orange-500/40 text-orange-400 text-xs sm:text-sm font-semibold mb-3">
             <Compass className="w-4 h-4 text-orange-400" />
-            <span>Interactive Route Map</span>
+            <span>{journeyText.badge}</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-            The Journey to Rome
+            {journeyText.title}
           </h2>
 
           <p className="mt-2.5 sm:mt-4 text-xs sm:text-base lg:text-lg text-stone-300 max-w-2xl mx-auto">
-            Scroll down or use the tour controls to walk alongside Bryn. Both the story card and the map animation are visible simultaneously as you travel across Europe.
+            {journeyText.description}
           </p>
 
           {/* Quick controls bar */}
@@ -238,11 +240,11 @@ export default function JourneySection() {
             >
               {isPlayingAutoTour ? (
                 <>
-                  <Pause className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> Pause Auto Tour
+                  <Pause className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> {journeyText.controls.pauseAutoTour}
                 </>
               ) : (
                 <>
-                  <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white" /> Start Auto Tour
+                  <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white" /> {journeyText.controls.startAutoTour}
                 </>
               )}
             </button>
@@ -252,7 +254,7 @@ export default function JourneySection() {
               className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm bg-stone-800 hover:bg-stone-700 text-stone-200 border border-stone-700 transition-all active:scale-95"
             >
               <Navigation className="w-3.5 h-3.5 text-orange-400" />
-              Reset to Start
+              {journeyText.controls.resetToStart}
             </button>
 
             <button
@@ -260,7 +262,7 @@ export default function JourneySection() {
               className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm bg-stone-800 hover:bg-stone-700 text-stone-200 border border-stone-700 transition-all active:scale-95"
             >
               <MapPin className="w-3.5 h-3.5 text-rose-400" />
-              Jump to Rome
+              {journeyText.controls.jumpToRome}
             </button>
           </div>
         </div>
@@ -369,7 +371,7 @@ export default function JourneySection() {
                     GPS: {activeSegment?.lat.toFixed(3)}, {activeSegment?.lng.toFixed(3)}
                   </span>
                   <span className="text-orange-400/90 flex items-center gap-1">
-                    <span>Scroll to advance route</span>
+                    <span>{journeyText.scrollInstruction}</span>
                     <ArrowRight className="w-2.5 h-2.5" />
                   </span>
                 </div>
@@ -391,16 +393,18 @@ export default function JourneySection() {
           <div className="p-4 relative z-20">
             <div className="bg-gradient-to-br from-orange-950/60 to-stone-900 border border-orange-500/40 rounded-2xl p-6 text-center shadow-xl">
               <Sparkles className="w-7 h-7 text-amber-400 mx-auto mb-2" />
-              <h4 className="text-lg font-bold text-white">The Pilgrimage Completed</h4>
+              <h4 className="text-lg font-bold text-white">{journeyText.completionCard.title}</h4>
               <p className="text-xs text-stone-300 mt-1.5">
-                From South Heath to Rome: 2,050 kilometres walked, countless lives touched, and crucial support delivered to our partner charities.
+                {journeyText.completionCard.description}
               </p>
+              {/* Commented out link to charities web page
               <Link
                 href="/charities"
                 className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-xs bg-orange-600 hover:bg-orange-500 text-white transition-all shadow-md active:scale-95"
               >
-                Support Bryn&apos;s Charities
+                {journeyText.completionCard.buttonText}
               </Link>
+              */}
             </div>
           </div>
         </div>
@@ -496,7 +500,7 @@ export default function JourneySection() {
                         onClick={() => scrollToSegment(index)}
                         className="text-orange-400 hover:text-orange-300 font-medium inline-flex items-center gap-1 active:scale-95"
                       >
-                        Center on Map <ArrowRight className="w-3 h-3" />
+                        {journeyText.centerOnMap} <ArrowRight className="w-3 h-3" />
                       </button>
                     </div>
                   </div>
@@ -507,16 +511,18 @@ export default function JourneySection() {
             {/* Bottom Final Mile Card */}
             <div className="bg-gradient-to-br from-orange-950/60 to-stone-900 border border-orange-500/40 rounded-3xl p-8 text-center">
               <Sparkles className="w-8 h-8 text-amber-400 mx-auto mb-3" />
-              <h4 className="text-xl font-bold text-white">The Pilgrimage Completed</h4>
+              <h4 className="text-xl font-bold text-white">{journeyText.completionCard.title}</h4>
               <p className="text-sm text-stone-300 mt-2">
-                From South Heath to Rome: 2,050 kilometres walked, countless lives touched, and crucial support delivered to our partner charities.
+                {journeyText.completionCard.description}
               </p>
+              {/* Commented out link to charities web page
               <Link
                 href="/charities"
                 className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm bg-orange-600 hover:bg-orange-500 text-white transition-all shadow-md active:scale-95"
               >
-                Support Bryn&apos;s Charities
+                {journeyText.completionCard.buttonText}
               </Link>
+              */}
             </div>
           </div>
 

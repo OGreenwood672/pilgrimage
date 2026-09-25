@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import siteContent from "../data/site-content.json";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,21 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bryn Jones | Walking from South Heath to Rome",
-  description:
-    "Follow Bryn Jones on his 2,050 km charity walk from South Heath in Buckinghamshire to St. Peter's Square in Rome along the historic Via Francigena.",
-  keywords: [
-    "Bryn Jones",
-    "South Heath to Rome",
-    "Via Francigena",
-    "Charity Walk",
-    "Pilgrimage",
-    "Buckinghamshire",
-  ],
+  title: siteContent.siteMeta.title,
+  description: siteContent.siteMeta.description,
+  keywords: siteContent.siteMeta.keywords,
   openGraph: {
-    title: "Bryn Jones | Walking from South Heath to Rome",
-    description:
-      "2,050 kilometres on foot through the UK, France, Switzerland, and Italy in support of life-changing charities.",
+    title: siteContent.siteMeta.openGraph.title,
+    description: siteContent.siteMeta.openGraph.description,
     type: "website",
   },
 };

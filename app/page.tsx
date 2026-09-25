@@ -4,9 +4,13 @@ import { Heart, ArrowRight, ShieldCheck } from "lucide-react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import JourneySection from "./components/JourneySection";
+import NewsletterSignup from "./components/NewsletterSignup";
 import Footer from "./components/Footer";
+import siteContent from "../data/site-content.json";
 
 export default function Home() {
+  const { charitiesTeaser } = siteContent;
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Sticky Navigation & Scroll Progress Indicator */}
@@ -26,35 +30,38 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="inline-flex items-center gap-2 text-xs font-semibold text-rose-400 uppercase tracking-wider mb-1">
-                    Dedicated Causes
+                    {charitiesTeaser.badge}
                   </div>
                   <h2 className="text-xl sm:text-2xl font-bold text-white">
-                    Walking in Support of 2 Partner Charities
+                    {charitiesTeaser.title}
                   </h2>
                   <p className="text-sm text-stone-300 mt-1 max-w-xl">
-                    Every step is dedicated to compassionate hospice care and
-                    rapid air ambulance emergency trauma relief. Learn about
-                    each cause and how to contribute.
+                    {charitiesTeaser.description}
                   </p>
                 </div>
               </div>
 
+              {/* Commented out link to charities web page
               <Link
                 href="/charities"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold bg-orange-600 hover:bg-orange-500 text-white transition-all shadow-md shrink-0 group"
               >
-                <span>Explore the Charities</span>
+                <span>{charitiesTeaser.buttonText}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
+              */}
             </div>
           </div>
         </section>
 
         {/* 3. Scroll-Driven Interactive Map & Journey Story */}
         <JourneySection />
+
+        {/* 4. User Email Subscription / Updates */}
+        <NewsletterSignup />
       </main>
 
-      {/* 4. Footer & Wrap-up */}
+      {/* 5. Footer & Wrap-up */}
       <Footer />
     </div>
   );

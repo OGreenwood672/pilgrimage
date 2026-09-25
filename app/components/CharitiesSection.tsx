@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { ExternalLink, Heart, Sparkles, HelpCircle } from "lucide-react";
+import { ExternalLink, Heart, Sparkles } from "lucide-react";
 import charitiesData from "../../data/charities.json";
+import siteContent from "../../data/site-content.json";
 
 interface Charity {
   id: string;
@@ -16,6 +17,7 @@ interface Charity {
 
 export default function CharitiesSection() {
   const charities: Charity[] = charitiesData;
+  const { charitiesSection } = siteContent;
 
   return (
     <section
@@ -31,17 +33,15 @@ export default function CharitiesSection() {
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-800 border border-stone-700 text-rose-400 text-xs sm:text-sm font-semibold mb-4">
             <Heart className="w-4 h-4 fill-rose-500/30 text-rose-500" />
-            <span>Dedicated Causes</span>
+            <span>{charitiesSection.badge}</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-            Supporting These Charities
+            {charitiesSection.title}
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-stone-300 leading-relaxed">
-            Every blister, steep mountain ascent, and long day on the trail is
-            dedicated to these remarkable organisations. Learn about their
-            essential work and discover why Bryn is walking for them.
+            {charitiesSection.description}
           </p>
 
           {/* TODO Tag */}
@@ -87,7 +87,7 @@ export default function CharitiesSection() {
                   <div className="mt-4 p-3.5 rounded-xl bg-stone-900/60 border border-stone-700/50 text-xs leading-relaxed text-stone-300">
                     <div className="font-semibold text-orange-400 flex items-center gap-1 mb-1">
                       <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                      Why Bryn supports them:
+                      {charitiesSection.whyBrynSupportsLabel}
                     </div>
                     <p className="italic">&ldquo;{charity.brynStory}&rdquo;</p>
                   </div>
@@ -96,7 +96,7 @@ export default function CharitiesSection() {
                 {/* External Link */}
                 <div className="mt-6 pt-4 border-t border-stone-700/60 flex items-center justify-between">
                   <span className="text-xs text-stone-300 font-medium">
-                    Learn more &amp; donate:
+                    {charitiesSection.learnMoreLabel}
                   </span>
                   <a
                     href={charity.website}
@@ -104,7 +104,7 @@ export default function CharitiesSection() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-400 hover:text-orange-300 transition-colors group/link"
                   >
-                    <span>Visit Website</span>
+                    <span>{charitiesSection.visitWebsiteButton}</span>
                     <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                   </a>
                 </div>
@@ -117,11 +117,10 @@ export default function CharitiesSection() {
         <div className="mt-14 p-6 rounded-2xl bg-gradient-to-r from-orange-950/40 via-stone-850 to-stone-850 border border-orange-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-center sm:text-left">
             <h4 className="text-lg font-bold text-white">
-              Want to contribute to Bryn&apos;s fundraising?
+              {charitiesSection.callout.title}
             </h4>
             <p className="text-sm text-stone-400 mt-0.5">
-              100% of public donations go directly to these registered
-              charitable causes.
+              {charitiesSection.callout.description}
             </p>
           </div>
           <a
@@ -131,7 +130,7 @@ export default function CharitiesSection() {
             className="px-5 py-2.5 rounded-xl text-sm font-semibold bg-orange-600 hover:bg-orange-500 text-white transition-all shadow-md shrink-0 flex items-center gap-2"
           >
             <Heart className="w-4 h-4 fill-white" />
-            Support the Walk
+            {charitiesSection.callout.buttonText}
           </a>
         </div>
       </div>

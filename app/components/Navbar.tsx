@@ -3,8 +3,10 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Compass, Heart, Footprints } from "lucide-react";
+import siteContent from "../../data/site-content.json";
 
 export default function Navbar() {
+  const { navigation } = siteContent;
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -48,10 +50,10 @@ export default function Navbar() {
             </div>
             <div>
               <span className="block text-xs font-semibold tracking-wide uppercase text-orange-400">
-                The Pilgrimage
+                {navigation.badge}
               </span>
               <span className="block text-sm sm:text-base font-bold leading-none text-white">
-                South Heath → Rome
+                {navigation.route}
               </span>
             </div>
           </Link>
@@ -62,34 +64,38 @@ export default function Navbar() {
               href="/#story"
               className="text-stone-300 hover:text-orange-400 transition-colors"
             >
-              Why Bryn Walks
+              {navigation.links.story}
             </Link>
             <Link
               href="/#journey"
               className="text-stone-300 hover:text-orange-400 transition-colors flex items-center gap-1.5"
             >
               <Compass className="w-4 h-4 text-amber-400 inline" />
-              The Route &amp; Map
+              {navigation.links.journey}
             </Link>
+            {/* Commented out link to charities web page
             <Link
               href="/charities"
               className="text-stone-300 hover:text-orange-400 transition-colors flex items-center gap-1.5"
             >
               <Heart className="w-4 h-4 text-rose-400 inline" />
-              Charities
+              {navigation.links.charities}
             </Link>
+            */}
           </nav>
 
           {/* Call to action button */}
+          {/* Commented out link to charities web page
           <div className="flex items-center gap-3">
             <Link
               href="/charities"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 shadow-sm hover:shadow transition-all"
             >
               <Heart className="w-3.5 h-3.5 fill-white/80" />
-              Support Causes
+              {navigation.ctaButton}
             </Link>
           </div>
+          */}
         </div>
       </header>
     </>

@@ -1,0 +1,163 @@
+{
+  "siteMeta": {
+    "title": "Bryn Jones | Walking from Buckinghamshire to Rome",
+    "description": "Follow Bryn Jones on his 2,050 km charity walk from Buckinghamshire in Buckinghamshire to St. Peter's Square in Rome along the historic Via Francigena.",
+    "keywords": [
+      "Bryn Jones",
+      "Buckinghamshire to Rome",
+      "Via Francigena",
+      "Charity Walk",
+      "Pilgrimage",
+      "Buckinghamshire"
+    ],
+    "openGraph": {
+      "title": "Bryn Jones | Walking from Buckinghamshire to Rome",
+      "description": "2,050 kilometres on foot through the UK, France, Switzerland, and Italy in support of life-changing charities."
+    }
+  },
+  "navigation": {
+    "badge": "Home2Rome",
+    "route": "Buckinghamshire → Rome",
+    "links": {
+      "story": "Why Bryn Walks",
+      "journey": "The Route & Map",
+      "charities": "Charities"
+    },
+    "ctaButton": "Support Causes"
+  },
+  "hero": {
+    "badge": "The 2,000 km Via Francigena Expedition",
+    "title": {
+      "prefix": "Walking from",
+      "origin": "Buckinghamshire",
+      "connector": "to",
+      "destination": "Rome"
+    },
+    "instagramUrl": "https://www.instagram.com/home2rome2028?stkn=MXh5Zmt1d3VrbG8xbw==",
+    "story": {
+      "paragraphs": [
+        "Hello, I am Bryn Jones. In the summer of 2028 I will be beginning a long journey from my home in Buckinghamshire to Rome in support of 2 charities. This website will allow you to follow along on my trip.",
+        "My walk will take me through 8 countries via historic trails and over the alps. It's over 1500 miles and will take roughly 4 months. It will be a massive test of physical ability and endurance and I will be pushed to my limits.",
+        "During my walk I will be uploading daily video diaries to social media as an update to everyone. However until then, you can join my weekly email newsletter where I will be updating you on my training, route planning, and gear acquisition. You can always follow my Instagram, @home2rome2028, where I will regularly be posting about my training."
+      ]
+    },
+    "buttons": {
+      "map": "Follow the Route on the Map",
+      "charities": "Explore the Charities"
+    },
+    "photo": {
+      "image": "/images/bryn.jpg",
+      "alt": "Bryn Jones - Walking from Buckinghamshire to Rome",
+      "badge": "The Walker",
+      "name": "Bryn Jones",
+      "subtitle": "Buckinghamshire, Bucks → Vatican City, Rome"
+    },
+    "stats": [
+      {
+        "value": "2,050 km",
+        "label": "Total Distance",
+        "sublabel": "~1,273 miles on foot"
+      },
+      {
+        "value": "~2.5M",
+        "label": "Estimated Steps",
+        "sublabel": "From start to Vatican finish"
+      },
+      {
+        "value": "4",
+        "label": "Countries Crossed",
+        "sublabel": "UK, France, Switzerland, Italy"
+      },
+      {
+        "value": "2,469 m",
+        "label": "Highest Elevation",
+        "sublabel": "Great St Bernard Alpine Pass"
+      }
+    ],
+    "scrollPrompt": "Scroll down to explore the interactive route"
+  },
+  "charitiesTeaser": {
+    "badge": "Dedicated Causes",
+    "title": "Walking in Support of 2 Partner Charities",
+    "description": "Every step is dedicated to compassionate hospice care and rapid air ambulance emergency trauma relief. Learn about each cause and how to contribute.",
+    "buttonText": "Explore the Charities"
+  },
+  "journey": {
+    "badge": "Interactive Route Map",
+    "title": "The Journey to Rome",
+    "description": "Scroll down or use the tour controls to walk alongside Bryn. Both the story card and the map animation are visible simultaneously as you travel across Europe.",
+    "controls": {
+      "startAutoTour": "Start Auto Tour",
+      "pauseAutoTour": "Pause Auto Tour",
+      "resetToStart": "Reset to Start",
+      "jumpToRome": "Jump to Rome"
+    },
+    "scrollInstruction": "Scroll to advance route",
+    "centerOnMap": "Center on Map",
+    "loadingMap": "Loading European Trail Map...",
+    "completionCard": {
+      "title": "The Pilgrimage Completed",
+      "description": "From Buckinghamshire to Rome: 2,050 kilometres walked, countless lives touched, and crucial support delivered to our partner charities.",
+      "buttonText": "Support Bryn's Charities"
+    }
+  },
+  "charitiesSection": {
+    "badge": "Dedicated Causes",
+    "title": "Supporting These Charities",
+    "description": "Every blister, steep mountain ascent, and long day on the trail is dedicated to these remarkable organisations. Learn about their essential work and discover why Bryn is walking for them.",
+    "whyBrynSupportsLabel": "Why Bryn supports them:",
+    "learnMoreLabel": "Learn more & donate:",
+    "visitWebsiteButton": "Visit Website",
+    "callout": {
+      "title": "Want to contribute to Bryn's fundraising?",
+      "description": "100% of public donations go directly to these registered charitable causes.",
+      "buttonText": "Support the Walk"
+    }
+  },
+  "charitiesPage": {
+    "metaTitle": "Supported Charities | Bryn Jones - Buckinghamshire to Rome",
+    "metaDescription": "Learn about the 2 charities Bryn Jones is supporting on his 2,050 km walk from Buckinghamshire to Rome: Hope Hospice Care and Thames Valley Air Ambulance.",
+    "backLink": "Back to The Walk & Interactive Map",
+    "badge": "Dedicated Causes & Fundraising",
+    "title": "Supporting These 2 Charities",
+    "description": "Every step of the 2,050 km journey from Buckinghamshire to Rome is dedicated to these two vital organizations. Discover their essential work and why Bryn chose to support them.",
+    "whyBrynSupportsLabel": "Why Bryn supports them:",
+    "officialWebsiteLabel": "Official website:",
+    "visitAndDonateButton": "Visit & Donate",
+    "guarantee": {
+      "title": "100% Direct Giving Guarantee",
+      "description": "All contributions are made directly through our partner charities' official web platforms. Bryn covers all of his own expedition and travel expenses entirely out of pocket, ensuring that every single penny donated goes straight to patient care and emergency trauma relief services.",
+      "routePrompt": "Want to see the full route Bryn is taking?",
+      "buttonText": "Explore The Interactive Map"
+    }
+  },
+  "fundraising": {
+    "badge": "Live Campaign Total",
+    "title": "Money Raised for Our 2 Partner Charities",
+    "compactBadge": "Fundraising Total",
+    "raisedSoFar": "raised so far",
+    "raisedOf": "raised of",
+    "target": "target",
+    "targetReached": "Target Reached",
+    "goal": "Goal:",
+    "supportersLabel": "Individual Supporters",
+    "buttonText": "Support the Charities"
+  },
+  "footer": {
+    "brand": "Buckinghamshire to Rome",
+    "bio": "Bryn Jones is undertaking a 2,050 km walking expedition across the United Kingdom, France, Switzerland, and Italy along the historic Via Francigena to raise vital funds for registered healthcare, mental wellness, and emergency charities.",
+    "route": "Buckinghamshire, Buckinghamshire, UK → St. Peter's Square, Vatican City, Rome",
+    "exploreTitle": "Explore",
+    "links": {
+      "story": "Why Bryn Walks",
+      "charities": "Supported Charities",
+      "journey": "Interactive Route Map"
+    },
+    "getInvolvedTitle": "Get Involved",
+    "getInvolvedDescription": "Direct donations can be made through our charity partners' official web platforms.",
+    "getInvolvedButton": "Support the Charities",
+    "copyright": "Bryn Jones — Walking from Buckinghamshire to Rome. All rights reserved.",
+    "backToTop": "Back to top"
+  }
+}
+

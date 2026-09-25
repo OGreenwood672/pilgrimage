@@ -1,6 +1,6 @@
-# Bryn Jones: Walking from South Heath to Rome
+# Bryn Jones: Walking from Buckinghamshire to Rome
 
-A responsive, single-page website detailing **Bryn Jones's 2,050 km charity walk from South Heath (Buckinghamshire, UK) to Rome (Italy)** along the historic Via Francigena.
+A responsive, single-page website detailing **Bryn Jones's 2,050 km charity walk from Buckinghamshire (Buckinghamshire, UK) to Rome (Italy)** along the historic Via Francigena.
 
 Featuring:
 
@@ -33,7 +33,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
    ```tsx
    <Image
      src="/images/bryn-jones.svg" // <-- Change to "/images/bryn-jones.jpg"
-     alt="Bryn Jones - Walking from South Heath to Rome"
+     alt="Bryn Jones - Walking from Buckinghamshire to Rome"
      fill
      priority
      className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -100,10 +100,10 @@ The structure matches your exact specification:
     "id": "segment-1",
     "lat": 51.7105,
     "lng": -0.6865,
-    "title": "Leaving South Heath: The First Step",
-    "text": "From the quiet country lanes of South Heath...",
+    "title": "Leaving Buckinghamshire: The First Step",
+    "text": "From the quiet country lanes of Buckinghamshire...",
     "image": "/images/segments/segment-1.svg",
-    "location": "South Heath, Buckinghamshire, UK",
+    "location": "Buckinghamshire, Buckinghamshire, UK",
     "distance": "0 km / 0 mi",
     "elevation": "170m"
   }

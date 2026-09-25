@@ -14,11 +14,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FundraisingCounter from "../components/FundraisingCounter";
 import charitiesData from "../../data/charities.json";
+import siteContent from "../../data/site-content.json";
 
 export const metadata: Metadata = {
-  title: "Supported Charities | Bryn Jones - South Heath to Rome",
-  description:
-    "Learn about the 2 charities Bryn Jones is supporting on his 2,050 km walk from South Heath to Rome: Hope Hospice Care and Thames Valley Air Ambulance.",
+  title: siteContent.charitiesPage.metaTitle,
+  description: siteContent.charitiesPage.metaDescription,
 };
 
 interface Charity {
@@ -34,6 +34,7 @@ interface Charity {
 
 export default function CharitiesPage() {
   const charities: Charity[] = charitiesData;
+  const { charitiesPage } = siteContent;
 
   return (
     <div className="flex flex-col min-h-screen bg-stone-950 text-stone-100">
@@ -49,22 +50,22 @@ export default function CharitiesPage() {
               className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-stone-400 hover:text-orange-400 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span>Back to The Walk &amp; Interactive Map</span>
+              <span>{charitiesPage.backLink}</span>
             </Link>
           </div>
 
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-900 border border-stone-800 text-rose-400 text-xs sm:text-sm font-semibold mb-4">
               <Heart className="w-4 h-4 fill-rose-500/30 text-rose-500" />
-              <span>Dedicated Causes &amp; Fundraising</span>
+              <span>{charitiesPage.badge}</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white">
-              Supporting These 2 Charities
+              {charitiesPage.title}
             </h1>
 
             <p className="mt-4 text-base sm:text-lg text-stone-300 leading-relaxed">
-              Every step of the 2,050 km journey from South Heath to Rome is dedicated to these two vital organizations. Discover their essential work and why Bryn chose to support them.
+              {charitiesPage.description}
             </p>
           </div>
 
@@ -112,7 +113,7 @@ export default function CharitiesPage() {
                     <div className="mt-5 p-4 rounded-2xl bg-stone-950/80 border border-stone-800 text-xs leading-relaxed text-stone-300">
                       <div className="font-semibold text-orange-400 flex items-center gap-1.5 mb-1.5">
                         <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                        Why Bryn supports them:
+                        {charitiesPage.whyBrynSupportsLabel}
                       </div>
                       <p className="italic">&ldquo;{charity.brynStory}&rdquo;</p>
                     </div>
@@ -121,7 +122,7 @@ export default function CharitiesPage() {
                   {/* External Donation / Website Link */}
                   <div className="mt-8 pt-5 border-t border-stone-800 flex items-center justify-between">
                     <span className="text-xs text-stone-400 font-medium">
-                      Official website:
+                      {charitiesPage.officialWebsiteLabel}
                     </span>
                     <a
                       href={charity.website}
@@ -129,7 +130,7 @@ export default function CharitiesPage() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-400 hover:text-orange-300 transition-colors group/link"
                     >
-                      <span>Visit &amp; Donate</span>
+                      <span>{charitiesPage.visitAndDonateButton}</span>
                       <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                     </a>
                   </div>
@@ -142,22 +143,22 @@ export default function CharitiesPage() {
           <div className="mt-14 p-8 rounded-3xl bg-stone-900 border border-stone-800 max-w-4xl mx-auto">
             <h3 className="text-xl font-bold text-white flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 text-emerald-400" />
-              100% Direct Giving Guarantee
+              {charitiesPage.guarantee.title}
             </h3>
             <p className="mt-2 text-sm text-stone-300 leading-relaxed">
-              All contributions are made directly through our partner charities&apos; official web platforms. Bryn covers all of his own expedition and travel expenses entirely out of pocket, ensuring that every single penny donated goes straight to patient care and emergency trauma relief services.
+              {charitiesPage.guarantee.description}
             </p>
 
             <div className="mt-6 pt-6 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-xs text-stone-400">
-                Want to see the full route Bryn is taking?
+                {charitiesPage.guarantee.routePrompt}
               </div>
               <Link
                 href="/#journey"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm bg-orange-600 hover:bg-orange-500 text-white transition-all shadow-md"
               >
                 <Compass className="w-4 h-4" />
-                Explore The Interactive Map
+                {charitiesPage.guarantee.buttonText}
               </Link>
             </div>
           </div>

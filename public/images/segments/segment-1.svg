@@ -8,7 +8,7 @@
   <rect width="600" height="360" fill="url(#grad1)"/>
   <g opacity="0.3"><path d="M100 240 Q150 160 200 240 T300 240 T400 240 T500 240" fill="none" stroke="#34d399" stroke-width="4"/><circle cx="100" cy="100" r="40" fill="#fef08a"/></g>
   <rect x="0" y="220" width="600" height="140" fill="rgba(0,0,0,0.6)"/>
-  <text x="30" y="265" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700">Leaving South Heath</text>
+  <text x="30" y="265" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700">Leaving Buckinghamshire</text>
   <text x="30" y="295" fill="#34d399" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600">Chiltern Hills, England</text>
   <text x="30" y="325" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12">TODO: Segment Image</text>
 </svg>

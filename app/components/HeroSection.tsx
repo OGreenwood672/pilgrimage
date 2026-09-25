@@ -1,17 +1,80 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import FundraisingCounter from "./FundraisingCounter";
+import GoFundMeEmbed from "./GoFundMeEmbed";
 import {
   ArrowDown,
   Footprints,
-  Mountain,
   Heart,
   Compass,
-  ShieldCheck,
 } from "lucide-react";
+import siteContent from "../../data/site-content.json";
+
+const STAT_COLORS = [
+  "text-orange-600",
+  "text-amber-600",
+  "text-emerald-600",
+  "text-rose-600",
+];
+
+function renderParagraphWithLinks(text: string, instagramUrl?: string) {
+  const targetUrl =
+    instagramUrl ||
+    "https://www.instagram.com/home2rome2028?stkn=MXh5Zmt1d3VrbG8xbw==";
+
+  // Regex to match either markdown link [label](url) or @handle (e.g. @home2rome2028)
+  const regex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|(@[a-zA-Z0-9_.]+)/g;
+  const elements: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      elements.push(text.slice(lastIndex, match.index));
+    }
+
+    if (match[1] && match[2]) {
+      // Markdown link [label](url)
+      elements.push(
+        <a
+          key={`md-${match.index}`}
+          href={match[2]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-orange-600 hover:text-orange-500 font-semibold underline underline-offset-2 transition-colors"
+        >
+          {match[1]}
+        </a>
+      );
+    } else if (match[3]) {
+      // @handle
+      const handle = match[3];
+      elements.push(
+        <a
+          key={`handle-${match.index}`}
+          href={targetUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-orange-600 hover:text-orange-500 font-semibold underline underline-offset-2 transition-colors inline-block"
+        >
+          {handle}
+        </a>
+      );
+    }
+
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    elements.push(text.slice(lastIndex));
+  }
+
+  return elements.length > 0 ? elements : text;
+}
 
 export default function HeroSection() {
+  const { hero } = siteContent;
+
   return (
     <section
       id="story"
@@ -31,7 +94,7 @@ export default function HeroSection() {
         <div className="flex justify-center md:justify-start mb-5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/90 border border-orange-200 text-orange-900 text-xs sm:text-sm font-semibold tracking-wide">
             <Footprints className="w-4 h-4 text-orange-600" />
-            <span>The 2,000 km Via Francigena Expedition</span>
+            <span>{hero.badge}</span>
           </div>
         </div>
 
@@ -40,39 +103,16 @@ export default function HeroSection() {
           {/* Left Column: Heading, Subheading, Story */}
           <div className="lg:col-span-7 text-center lg:text-left">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight leading-[1.14]">
-              Walking from <span className="text-orange-600">South Heath</span>{" "}
-              to <span className="text-amber-600">Rome</span>
+              {hero.title.prefix}{" "}
+              <span className="text-orange-600">{hero.title.origin}</span>{" "}
+              {hero.title.connector}{" "}
+              <span className="text-amber-600">{hero.title.destination}</span>
             </h1>
 
-            <p className="mt-4 text-xl sm:text-2xl font-medium text-stone-700 tracking-tight">
-              Why Bryn Jones is Bryn Jones
-            </p>
-
             <div className="mt-6 space-y-4 text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              <p>
-                <strong className="text-stone-900 font-semibold">
-                  Bryn Jones
-                </strong>{" "}
-                is Bryn Jones. He is setting out on his legs from the fuckin
-                noisy beach at South Heath in Buckinghamshire on an epic
-                25,050-kilometre expedition across Western Europe to St. Peter’s
-                Square in Rome. He also loves lemons and cream tea! DONATE
-                LEMONS!!
-              </p>
-              <p>
-                Following the historic pilgrim trail of the{" "}
-                <em>Via Francigena</em>, this journey is not just a test of
-                endurance across English downs, French vineyards, and
-                snow-dusted Alpine passes. It is a heartfelt mission to channel
-                every stride into meaningful hope—raising vital funds and
-                awareness for causes deeply close to his heart. YUMMYYYYY
-              </p>
-              <p className="text-stone-700 font-medium italic">
-                &ldquo;When life challenges us, moving forward one foot at a
-                time is how healing and purpose begin. Every mile walked is for
-                the people and charities doing extraordinary work every single
-                day.&rdquo;
-              </p>
+              {hero.story.paragraphs.map((paragraph, index) => (
+                <p key={index}>{renderParagraphWithLinks(paragraph, hero.instagramUrl)}</p>
+              ))}
             </div>
 
             {/* CTA Buttons */}
@@ -82,15 +122,17 @@ export default function HeroSection() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 shadow-md hover:shadow-lg transition-all text-base"
               >
                 <Compass className="w-5 h-5" />
-                Follow the Route on the Map
+                {hero.buttons.map}
               </a>
+              {/* Commented out link to charities web page
               <Link
                 href="/charities"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-stone-800 bg-stone-200/80 hover:bg-stone-300/80 border border-stone-300 transition-all text-base"
               >
                 <Heart className="w-5 h-5 text-rose-600" />
-                Explore the Charities
+                {hero.buttons.charities}
               </Link>
+              */}
             </div>
           </div>
 
@@ -99,8 +141,8 @@ export default function HeroSection() {
             <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-stone-900 group">
               {/* Image element */}
               <Image
-                src="/images/bryn-jones.svg"
-                alt="Bryn Jones - Walking from South Heath to Rome"
+                src={hero.photo.image}
+                alt={hero.photo.alt}
                 fill
                 priority
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -109,83 +151,47 @@ export default function HeroSection() {
               {/* Gradient overlay at bottom */}
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-black/10 pointer-events-none" />
 
-              {/* Replacement Tag */}
-              <div className="absolute top-3 right-3 bg-stone-900/90 backdrop-blur-md text-amber-300 border border-amber-500/40 text-xs px-2.5 py-1 rounded-full font-mono font-medium shadow-sm">
-                TODO: Photo
-              </div>
-
               {/* Caption at bottom */}
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <div className="text-xs uppercase tracking-wider font-semibold text-orange-400 mb-0.5">
-                  The Walker
+                  {hero.photo.badge}
                 </div>
-                <h3 className="text-xl font-bold leading-tight">Bryn Jones</h3>
+                <h3 className="text-xl font-bold leading-tight">{hero.photo.name}</h3>
                 <p className="text-xs text-stone-300 mt-1">
-                  South Heath, Bucks → Vatican City, Rome
+                  {hero.photo.subtitle}
                 </p>
               </div>
             </div>
 
-            <p className="mt-2 text-xs text-stone-500 font-mono text-center">
-              TODO: Replace with photo of Bryn Jones
-            </p>
           </div>
         </div>
 
-        {/* Prominent Money Raised Display */}
+        {/* GoFundMe Official Embed & Live Campaign Progress */}
         <div className="mt-12">
-          <FundraisingCounter />
+          <GoFundMeEmbed />
         </div>
 
         {/* Stats & Milestones Ribbon */}
         <div className="mt-10 pt-8 border-t border-stone-300/80 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-          <div className="bg-white/70 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-stone-200 shadow-sm text-center">
-            <div className="text-2xl sm:text-3xl font-black text-orange-600 font-mono">
-              2,050 km
-            </div>
-            <div className="text-xs sm:text-sm font-semibold text-stone-800 mt-1">
-              Total Distance
-            </div>
-            <div className="text-xs text-stone-600 mt-0.5">
-              ~1,273 miles on foot
-            </div>
-          </div>
-
-          <div className="bg-white/70 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-stone-200 shadow-sm text-center">
-            <div className="text-2xl sm:text-3xl font-black text-amber-600 font-mono">
-              ~2.5M
-            </div>
-            <div className="text-xs sm:text-sm font-semibold text-stone-800 mt-1">
-              Estimated Steps
-            </div>
-            <div className="text-xs text-stone-600 mt-0.5">
-              From start to Vatican finish
-            </div>
-          </div>
-
-          <div className="bg-white/70 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-stone-200 shadow-sm text-center">
-            <div className="text-2xl sm:text-3xl font-black text-emerald-600 font-mono">
-              4
-            </div>
-            <div className="text-xs sm:text-sm font-semibold text-stone-800 mt-1">
-              Countries Crossed
-            </div>
-            <div className="text-xs text-stone-600 mt-0.5">
-              UK, France, Switzerland, Italy
-            </div>
-          </div>
-
-          <div className="bg-white/70 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-stone-200 shadow-sm text-center">
-            <div className="text-2xl sm:text-3xl font-black text-rose-600 font-mono">
-              2,469 m
-            </div>
-            <div className="text-xs sm:text-sm font-semibold text-stone-800 mt-1">
-              Highest Elevation
-            </div>
-            <div className="text-xs text-stone-600 mt-0.5">
-              Great St Bernard Alpine Pass
-            </div>
-          </div>
+          {hero.stats.map((stat, index) => {
+            const colorClass = STAT_COLORS[index % STAT_COLORS.length];
+            return (
+              <div
+                key={index}
+                className="bg-white/70 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-stone-200 shadow-sm text-center"
+              >
+                <div className={`text-2xl sm:text-3xl font-black ${colorClass} font-mono`}>
+                  {stat.value}
+                </div>
+                <div className="text-xs sm:text-sm font-semibold text-stone-800 mt-1">
+                  {stat.label}
+                </div>
+                <div className="text-xs text-stone-600 mt-0.5">
+                  {stat.sublabel}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Scroll indicator prompt */}
@@ -195,7 +201,7 @@ export default function HeroSection() {
             className="group flex flex-col items-center gap-1.5 text-stone-600 hover:text-stone-900 transition-colors"
           >
             <span className="text-xs font-semibold uppercase tracking-wider">
-              Scroll down to explore the interactive route
+              {hero.scrollPrompt}
             </span>
             <div className="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center group-hover:border-orange-500 group-hover:text-orange-600 transition-all animate-bounce">
               <ArrowDown className="w-4 h-4" />
