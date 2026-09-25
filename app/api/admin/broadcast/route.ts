@@ -29,7 +29,7 @@ function generateEmailHtml(subject: string, message: string): string {
           <tr>
             <td style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%); padding: 32px 24px; text-align: center;">
               <div style="display: inline-block; padding: 6px 14px; background-color: rgba(234, 88, 12, 0.2); border: 1px solid rgba(234, 88, 12, 0.4); border-radius: 9999px; color: #fb923c; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">
-                The 2,050 km Pilgrimage
+                Home2Rome Update
               </div>
               <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 800; letter-spacing: -0.02em;">
                 Walking from Buckinghamshire to Rome
@@ -52,7 +52,7 @@ function generateEmailHtml(subject: string, message: string): string {
               <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #f5f5f4;">
                 <tr>
                   <td align="center">
-                    <a href="https://bryn-pilgrimage.vercel.app/#journey" style="display: inline-block; padding: 12px 24px; background-color: #ea580c; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 12px; box-shadow: 0 4px 10px rgba(234, 88, 12, 0.3);">
+                    <a href="https://home2rome.com/#journey" style="display: inline-block; padding: 12px 24px; background-color: #ea580c; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 12px; box-shadow: 0 4px 10px rgba(234, 88, 12, 0.3);">
                       Explore Interactive Route Map
                     </a>
                   </td>
@@ -65,7 +65,7 @@ function generateEmailHtml(subject: string, message: string): string {
           <tr>
             <td style="background-color: #fafaf9; padding: 24px; text-align: center; border-top: 1px solid #e7e5e4;">
               <p style="margin: 0; color: #78716c; font-size: 12px; line-height: 1.5;">
-                You received this update because you subscribed to follow Bryn Jones's charity walk from Buckinghamshire to Rome along the Via Francigena.
+                You received this update because you subscribed to follow Bryn Jones's charity walk from Buckinghamshire to Rome.
               </p>
               <p style="margin: 8px 0 0 0; color: #a8a29e; font-size: 11px;">
                 &copy; ${new Date().getFullYear()} Bryn Jones. All rights reserved.
